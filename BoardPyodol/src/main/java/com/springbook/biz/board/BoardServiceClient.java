@@ -1,57 +1,39 @@
 package com.springbook.biz.board;
 
-import java.sql.Date;
+import java.util.List;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class BoardServiceClient {
-	private int seq; 
-	private String title;
-	private String writer;
-	private String content;
-	private Date regDate;
-	private int cnt;
-	public int getSeq() {
-		return seq;
-	}
-	public void setSeq(int seq) {
-		this.seq = seq;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getWriter() {
-		return writer;
-	}
-	public void setWriter(String writer) {
-		this.writer = writer;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
-	public Date getRegDate() {
-		return regDate;
-	}
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
-	}
 
-	public int getCnt() {
-		return cnt;
-	}
-	public void setCnt(int cnt) {
-		this.cnt = cnt;
-	}
-	@Override
-	public String toString() {
-		return "BoardVo [seq=" + seq + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regDate="
-				+ regDate + ", cnt=" + cnt + ", getSeq()=" + getSeq() + ", getTitle()=" + getTitle() + ", getWriter()="
-				+ getWriter() + ", getContent()=" + getContent() + ", getRegDate()=" + getRegDate() + ", getCnt()="
-				+ getCnt() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
-	}
+		public static void main(String args[]) {
+				AbstractApplicationContext container = 
+						  new GenericXmlApplicationContext ("applicationContext.xml");
+				GenericXmlApplicationContext container2 = 
+						  new GenericXmlApplicationContext ("applicationContext.xml");
+				BoardService boardService  = (BoardService)container.getBean("boardService");
+				
+				
+				
+				
+				BoardVo vo = new BoardVo();
+				vo.setTitle("ÀÌ¿ø±¤2");
+				vo.setWriter("jigsaw2");
+				vo.setContent("perfectElven Jigkyoromas22");
+				
+				boardService.insertBoad(vo);
+				
+				List<BoardVo> boardList = boardService.getBoardList(vo);
+				
+				for (BoardVo board:boardList) {
+					System.out.println("--->" +board.toString());
+				}
+				
+				
+				
+				
+				
+		}
+	
 }

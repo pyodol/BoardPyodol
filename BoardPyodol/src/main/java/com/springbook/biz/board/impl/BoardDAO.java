@@ -39,8 +39,9 @@ public class BoardDAO {
 				conn = JDBCUtil.getConnection();
 				stmt = conn.prepareStatement(BOARD_INSERT);
 				stmt.setString(1, vo.getTitle());
-				stmt.setString(2, vo.getContent());
-				stmt.setString(3, vo.getWriter());
+				stmt.setString(2, vo.getWriter());
+				stmt.setString(3, vo.getContent());
+				
 				stmt.executeUpdate();
 			}catch (Exception e) {
 				e.printStackTrace();
@@ -111,13 +112,12 @@ public class BoardDAO {
 		
 		@SuppressWarnings("null")
 		public List<BoardVo> getBoardList (BoardVo vo) {
-			System.out.println("===>jdbc deleteBoard() Start" );
+			System.out.println("===>jdbc getBoardList() Start" );
 			List <BoardVo> boardList =new ArrayList<BoardVo>();
 			ResultSet rs = null;
 			try {
 				conn = JDBCUtil.getConnection();
 				stmt = conn.prepareStatement(BOARD_LIST);
-				stmt.setInt	  (1, vo.getSeq());
 				rs= stmt.executeQuery();
 				while(rs.next()) {
 					BoardVo board = new BoardVo();
