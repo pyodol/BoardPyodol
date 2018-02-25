@@ -28,5 +28,40 @@
 	</bean>-->
 	
 	<!--  <bean id="userDAO" class="com.springbook.biz.user.impl.UserDAO" ></bean>-->
+	<!--  <bean id ="log" class="com.springbook.biz.common.LogAdvice">
+	</bean>
 	
+	<bean id ="beforelog" class="com.springbook.biz.common.BeforeLogAdvice">
+	</bean>
+	<bean id ="afterlogreturning" class="com.springbook.biz.common.AfterReturningAdvice">
+	</bean>
+	<bean id ="afterthrowlog" class="com.springbook.biz.common.AfterThrowAdvice">
+	</bean>
+	<bean id ="afterfianllog" class="com.springbook.biz.common.AfterAdvice">
+	</bean>
+	<bean id ="Aroundlog" class="com.springbook.biz.common.AroundAdvice">
+	</bean>-->
+	<!--  <aop:config>
+		<aop:pointcut id="allPointcut" expression="execution(* com.springbook.biz..*Impl.*(..))" />
+		<aop:pointcut id="getPointcut" expression="execution(* com.springbook.biz..*Impl.get*(..))" />-->
+		<!--      <aop:aspect ref="log">
+			<aop:before method="printLog" pointcut-ref="allPointcut"/>
+		</aop:aspect>
+		<aop:aspect ref="afterthrowlog">
+			<aop:after-throwing method="afterthrowlog" pointcut-ref="allPointcut" throwing="exceptObj" />
+		</aop:aspect>
+		 <aop:aspect ref="afterlogreturning">
+			<aop:after-returning method="afterRetuninglog" pointcut-ref="getPointcut" returning="returnObj"/>
+		</aop:aspect>-->
+		<!--    <aop:aspect ref="afterfianllog">
+			<aop:after method="afterlog" pointcut-ref="allPointcut"/>
+		</aop:aspect>-->
+		
+		<!--  <aop:aspect ref="Aroundlog">
+			<aop:around method="AroundLog" pointcut-ref="allPointcut"/>
+		</aop:aspect>
+	</aop:config>-->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+
 </beans>

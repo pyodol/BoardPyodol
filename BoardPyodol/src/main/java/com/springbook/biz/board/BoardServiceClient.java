@@ -10,17 +10,15 @@ public class BoardServiceClient {
 		public static void main(String args[]) {
 				AbstractApplicationContext container = 
 						  new GenericXmlApplicationContext ("applicationContext.xml");
-				GenericXmlApplicationContext container2 = 
-						  new GenericXmlApplicationContext ("applicationContext.xml");
 				BoardService boardService  = (BoardService)container.getBean("boardService");
 				
 				
 				
 				
 				BoardVo vo = new BoardVo();
-				vo.setTitle("ÀÌ¿ø±¤2");
+				vo.setTitle("Çï¸°ÀÌ");
 				vo.setWriter("jigsaw2");
-				vo.setContent("perfectElven Jigkyoromas22");
+				vo.setContent("½Ì±ÛÅ¬·¯Ä¡¼º°ø");
 				
 				boardService.insertBoad(vo);
 				

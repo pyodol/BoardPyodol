@@ -35,6 +35,9 @@ public class BoardDAO {
 		
 		public void insertBoard (BoardVo vo) {
 			System.out.println("===>jdbc insertBoard() Start" );
+			if(vo.getSeq()==0) {
+			throw new IllegalArgumentException("Å×½ºÆ®");
+			}
 			try {
 				conn = JDBCUtil.getConnection();
 				stmt = conn.prepareStatement(BOARD_INSERT);
