@@ -10,6 +10,10 @@ import com.springbook.biz.board.BoardVo;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService{
+	/*
+	 *  autowire를 했는데 왜...? 문제가 될까요 Autowire를 지우면 문제가 안생김
+	 * 
+	 * */
 	@Autowired
 	private BoardDAO boardDAO;
 	

@@ -16,8 +16,8 @@ public class BoardServiceClient {
 				
 				
 				BoardVo vo = new BoardVo();
-				vo.setTitle("Çï¸°ÀÌ");
-				vo.setWriter("jigsaw2");
+				vo.setTitle("Ç¥½ÂÁ¾");
+				vo.setWriter("»þ»þ»þ»þ");
 				vo.setContent("½Ì±ÛÅ¬·¯Ä¡¼º°ø");
 				
 				boardService.insertBoad(vo);
