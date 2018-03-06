@@ -2,23 +2,13 @@ package com.springbook.biz.board.impl;
 
 import java.util.List;
 
-import javax.sql.DataSource;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import com.springbook.biz.board.BoardRowMapper;
 import com.springbook.biz.board.BoardVo;
-@Repository("boardDAO")
+
 public class BoardDAO extends JdbcDaoSupport{
-		@Autowired
-		public void setUpserDataSource(DataSource dataSource) {
-			super.setDataSource(dataSource);
-		}
-		
-		
+
 		private final String BOARD_INSERT = "insert into board (seq, title , writer,content)"
 										+"values((select nvl(max(seq) , 0 ) +1 from board ) "
 										+ "        , ? "
