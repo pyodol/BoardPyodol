@@ -1,6 +1,7 @@
 package com.springbook.biz.user.impl;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.springbook.biz.common.JDBCUtil;
 import com.springbook.biz.user.UserVo;
+
 @Repository("userDAO")
 public class UserDAO {
 		private Connection conn= null;
@@ -40,8 +42,5 @@ public class UserDAO {
 			}
 			return user;
 		}
-		
-		
-		
 		
 }

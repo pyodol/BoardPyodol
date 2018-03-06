@@ -2,7 +2,7 @@ package com.springbook.biz.board;
 
 import java.util.List;
 
-public interface BoardService {
+public interface BoardDAO {
 	
 	void insertBoard(BoardVo vo);
 	

@@ -24,10 +24,10 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-3.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
-	 <!--  <aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
-	<!--  <context:component-scan base-package="com.springbook.biz" />-->
-	  <context:property-placeholder location="classpath:config/database.properties"/> 
+ 	<!--  <aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
+	<context:component-scan base-package="com.springbook.biz" />
 	
+	<context:property-placeholder location="classpath:config/database.properties"/> 
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${jdbc.driver}"></property>
@@ -40,26 +40,18 @@
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 	
-	<bean id="boardDAO" class="com.springbook.biz.board.impl.BoardDAO">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-	
-	
-	  <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource"  ref="dataSource"></property>
 	</bean>
 	
-	
-	
-	 <tx:advice id="txAdvice" transaction-manager="txManager">
+	<tx:advice id="txAdvice" transaction-manager="txManager">
 	 	<tx:attributes>
 	 		<tx:method name="*"/>
 	 		<tx:method name="get*" read-only="true"/>
 	 	</tx:attributes>
 	</tx:advice>
-	  
-	   
-	  <aop:config>
+   
+	<aop:config>
 		<aop:pointcut id="txPointcut" expression="execution(* com.springbook.biz..*(..))" />
 		<aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice"/>
 	</aop:config>
@@ -102,7 +94,5 @@
 			<aop:around method="AroundLog" pointcut-ref="allPointcut"/>
 		</aop:aspect>
 	</aop:config>-->
-
-
 
 </beans>

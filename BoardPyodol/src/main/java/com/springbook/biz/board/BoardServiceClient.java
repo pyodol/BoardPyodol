@@ -12,25 +12,18 @@ public class BoardServiceClient {
 						  new GenericXmlApplicationContext ("applicationContext.xml");
 				BoardService boardService  = (BoardService)container.getBean("boardService");
 				
-				
-				
-				
 				BoardVo vo = new BoardVo();
 				vo.setTitle("Ç¥½ÂÁ¾");
 				vo.setWriter("»þ»þ»þ»þ");
 				vo.setContent("½Ì±ÛÅ¬·¯Ä¡¼º°ø");
 				
-				boardService.insertBoad(vo);
+				boardService.insertBoard(vo);
 				
 				List<BoardVo> boardList = boardService.getBoardList(vo);
 				
 				for (BoardVo board:boardList) {
 					System.out.println("--->" +board.toString());
 				}
-				
-				
-				
-				
 				
 		}
 	

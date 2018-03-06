@@ -52,8 +52,6 @@ public class BoardDAOSpring {
 			return jdbcTemplate.queryForObject(BOARD_GET,  args, new BoardRowMapper());
 		}
 		
-		
-		@SuppressWarnings("null")
 		public List<BoardVo> getBoardList (BoardVo vo) {
 			System.out.println("===>jdbc getBoardList() Start" );
 			return jdbcTemplate.query(BOARD_LIST, new BoardRowMapper());

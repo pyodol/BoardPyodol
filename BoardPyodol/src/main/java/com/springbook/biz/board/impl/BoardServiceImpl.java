@@ -3,9 +3,11 @@ package com.springbook.biz.board.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.springbook.biz.board.BoardService;
+import com.springbook.biz.board.BoardDAO;
 import com.springbook.biz.board.BoardVo;
 
 @Service("boardService")
@@ -17,7 +19,7 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	public BoardDAO boardDAO;
 	
-	public void insertBoad(BoardVo vo) {
+	public void insertBoard(BoardVo vo) {
 		// TODO Auto-generated method stub
 		boardDAO.insertBoard(vo);
 	}
