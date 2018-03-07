@@ -9,12 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
-import com.springbook.biz.board.BoardDAO;
 import com.springbook.biz.board.BoardRowMapper;
 import com.springbook.biz.board.BoardVo;
 
-@Repository("boardDAO")
-public class BoardDAOImpl extends JdbcDaoSupport implements BoardDAO{
+@Repository
+public class BoardDAO extends JdbcDaoSupport {
 
 	@Autowired
 	private DataSource dataSource;
