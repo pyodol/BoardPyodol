@@ -2,14 +2,28 @@ package com.springbook.biz.board.impl;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.stereotype.Repository;
 
 import com.springbook.biz.board.BoardRowMapper;
 import com.springbook.biz.board.BoardVo;
 
-public class BoardDAO extends JdbcDaoSupport{
+@Repository
+public class BoardDAO extends JdbcDaoSupport {
 
-		private final String BOARD_INSERT = "insert into board (seq, title , writer,content)"
+	@Autowired
+	private DataSource dataSource;
+
+	@PostConstruct
+	private void initialize() {
+		setDataSource(dataSource);
+	}
+	 
+	 private final String BOARD_INSERT = "insert into board (seq, title , writer,content)"
 										+"values((select nvl(max(seq) , 0 ) +1 from board ) "
 										+ "        , ? "
 										+ "        , ? "
@@ -47,11 +61,9 @@ public class BoardDAO extends JdbcDaoSupport{
 			
 		}
 		
-		
-		@SuppressWarnings("null")
 		public List<BoardVo> getBoardList (BoardVo vo) {
 			System.out.println("===>jdbc getBoardList() Start" );
 			return getJdbcTemplate().query(BOARD_LIST, new BoardRowMapper());
-		}	
-		
+		}
+
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVo;
 
-@Service("boardService")
+@Service
 public class BoardServiceImpl implements BoardService{
 	/*
 	 *  autowire를 했는데 왜...? 문제가 될까요 Autowire를 지우면 문제가 안생김
@@ -17,7 +17,7 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	public BoardDAO boardDAO;
 	
-	public void insertBoad(BoardVo vo) {
+	public void insertBoard(BoardVo vo) {
 		// TODO Auto-generated method stub
 		boardDAO.insertBoard(vo);
 	}

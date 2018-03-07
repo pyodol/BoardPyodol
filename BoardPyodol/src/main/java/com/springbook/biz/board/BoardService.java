@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface BoardService {
 	
-	void insertBoad(BoardVo vo);
+	void insertBoard(BoardVo vo);
 	
 	void updateBoard(BoardVo vo);
 	
